@@ -26,9 +26,9 @@ public class DaoPost {
                     p.setId(rs.getInt("id"));
                     p.setTitulo(rs.getString("titulo"));
                     p.setConteudo(rs.getString("conteudo"));
+                    p.setDataCriacao(rs.getDate("dataCriacao"));
                     p.setAutorId(rs.getInt("autorId"));
                     lista.add(p);
-
                 }
             } catch (SQLException e) {
                 return lista;
@@ -49,15 +49,39 @@ public class DaoPost {
                     p.setId(rs.getInt("id"));
                     p.setTitulo(rs.getString("titulo"));
                     p.setConteudo(rs.getString("conteudo"));
+                    p.setDataCriacao(rs.getDate("dataCriacao"));
                     p.setAutorId(rs.getInt("autorId"));
                     lista.add(p);
-
                 }
             } catch (SQLException e) {
                 return lista;
             }
         }
         return lista;
+    }
+
+    public static Post listarPorId(int id) {
+        Connection con = Conexao.conectar();
+        Post p = null;
+        if(con != null) {
+            try {
+                PreparedStatement stm = con.prepareStatement("select * from posts where id = ?");
+                stm.setInt(1, id);
+                ResultSet rs = stm.executeQuery();
+                while (rs.next()){
+                    p = new Post();
+                    p.setId(rs.getInt("id"));
+                    p.setTitulo(rs.getString("titulo"));
+                    p.setConteudo(rs.getString("conteudo"));
+                    p.setDataCriacao(rs.getDate("dataCriacao"));
+                    p.setAutorId(rs.getInt("autorId"));
+
+                }
+            } catch (SQLException e) {
+                return p;
+            }
+        }
+        return p;
     }
 
 }

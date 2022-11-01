@@ -9,6 +9,7 @@
 			rel="stylesheet"
 			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 			crossorigin="anonymous">
+			<title>Blog - Indicações de Livros</title>
 	</head>
 
 	<body>
@@ -36,7 +37,7 @@
 								out.write("<div class='card-body d-flex flex-column'>");
 									out.write("<h5 class='card-title '>"+ p.getTitulo() + "</h5>");
 									out.write("<p class='card-text mt-auto'>"+ conteudoResumido + "...</p>");
-									out.write("<a href='post.jsp?id=" + p.getId() + "' class='btn btn-primary w-100 mt-auto'>Ver post</a>");
+									out.write("<a href='post.jsp?id=" + p.getId() + "' class='btn btn-primary w-100 mt-auto'>Ver postagem completa</a>");
 								out.write("</div>");
 							out.write("</div>");
 						out.write("</div>");
