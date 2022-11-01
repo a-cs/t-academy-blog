@@ -1,20 +1,3 @@
-create table usuarios (
-	id int primary key auto_increment,
-	email varchar(50) not null,
-	senha varchar(50) not null,
-	isAdmin bool
-)
-
-insert into usuarios (email, senha, isAdmin)
-values
-("admin@gmail.com", "123456", true),
-("user1@gmail.com", "123456", false),
-("user2@gmail.com", "123456", false),
-("user3@gmail.com", "123456", false),
-("user4@gmail.com", "123456", false),
-("user5@gmail.com", "123456", false)
-
-
 create table posts (
 	id int primary key auto_increment,
 	titulo varchar(150) not null,

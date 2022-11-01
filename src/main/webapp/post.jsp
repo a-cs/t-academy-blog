@@ -15,6 +15,29 @@
 			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 			crossorigin="anonymous">
 			<title>Blog - Indicações de Livros</title>
+
+			<style>
+				.card {
+					border-radius: 16px;
+					border-width: 4px;
+				}
+
+				.pictureWrapper{
+					max-width: 80px;
+				}
+				.profilePicture {
+					/* border-radius: 50%; */
+					transform: scale(1.5);
+					margin-left: -35px;
+					width: 143px;
+					height: 80px;
+					clip-path: circle(25px at 50%)
+				}
+
+				.form-control {
+					font-size: 20px;
+				}
+			</style>
 	</head>
 
 	<body>
@@ -52,9 +75,44 @@
 				}
 			%>
 
-			<div class="row my-5 mx-3">
+			<div class="row mt-5 mb-3 mx-3">
 				<h2 class="text-secondary">Comentários:</h2>
 			</div>
-			
+
+			<div class="row mb-5 mx-5">
+				<div class='card mx-2 mb-3 '>
+						<div class='card-body d-flex flex-column py-3 h-100 text-center'>
+							<h4 class='card-title mt-3'>Para comentar é necessário efetuar o login.</h4>
+							<a href='' class='btn btn-primary w-100 mt-3 mb-4'>Para logar, clique aqui</a>
+						</div>
+				</div>
+
+				<div class='card mx-2 mb-3 '>
+					<form class='card-body d-flex flex-column py-3 h-100'>
+						<h4 class='form-label mt-3 mb-4'>Comentário.</h4>
+						<textarea rows="3" maxlength="200" placeholder="Digite seu comentário"  name="comentario" class='form-control mt-auto text-muted'></textarea>
+						<a href='' class='btn btn-primary w-100 mt-3 mb-4'>Enviar comentário</a>
+					</form>
+				</div>
+
+				<div class='card mx-2 mb-3 '>
+						<div class="row py-3 mx-3 align-items-center">
+						<div class="col-2 pictureWrapper p-0">
+							<img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80"
+							class="profilePicture" alt="ProfilePicture">
+						</div>
+						<div class="col-10 p-0 h-100">
+							<div class='card-body d-flex flex-column py-0 h-100'>
+								<h4 class='card-title'>Nome</h4>
+								<p class='card-text mt-auto text-muted'> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Reprehenderit perferendis quam facilis distinctio neque eius soluta officia aspernatur!
+										Sed iure illum temporibus inventore perspiciatis sunt aperiam ea optio asperiores! Qui.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
