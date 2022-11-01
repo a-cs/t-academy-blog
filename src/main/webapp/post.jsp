@@ -1,6 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@page import="com.blog.entities.Post" %>
 <%@page import="com.blog.dao.DaoPost" %>
+<%@page import="com.blog.entities.Comentario" %>
+<%@page import="com.blog.dao.DaoComentario" %>
+<%@page import="com.blog.entities.Usuario" %>
+<%@page import="com.blog.dao.DaoUsuario" %>
+<%@page import="java.util.List" %>
 
 <%
 	String id=request.getParameter("id");
@@ -95,23 +100,29 @@
 					</form>
 				</div>
 
-				<div class='card mx-2 mb-3 '>
-						<div class="row py-3 mx-3 align-items-center">
-						<div class="col-2 pictureWrapper p-0">
-							<img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80"
-							class="profilePicture" alt="ProfilePicture">
-						</div>
-						<div class="col-10 p-0 h-100">
-							<div class='card-body d-flex flex-column py-0 h-100'>
-								<h4 class='card-title'>Nome</h4>
-								<p class='card-text mt-auto text-muted'> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Reprehenderit perferendis quam facilis distinctio neque eius soluta officia aspernatur!
-										Sed iure illum temporibus inventore perspiciatis sunt aperiam ea optio asperiores! Qui.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
+
+				<%
+					if(p != null){
+						List<Comentario> lista = DaoComentario.listarAprovadosPorPost(p.getId());
+						for(Comentario c : lista){
+							Usuario u = DaoUsuario.listarPorId(c.getAutorId());
+							out.write("<div class='card mx-2 mb-3 '>");
+								out.write("<div class='row py-3 mx-3 align-items-center'>");
+									out.write("<div class='col-2 pictureWrapper p-0'>");
+										out.write("<img src='https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80' class='profilePicture' alt='ProfilePicture'>");
+									out.write("</div>");
+									out.write("<div class='col-10 p-0 h-100'>");
+										out.write("<div class='card-body d-flex flex-column py-0 h-100'>");
+											out.write("<h4 class='card-title'>" + u.getNome()+ "</h4>");
+											out.write("<p class='card-text mt-auto text-muted'>"+c.getConteudo()+"</p>");
+										out.write("</div>");
+									out.write("</div>");
+								out.write("</div>");
+							out.write("</div>");
+						}
+					}
+				%>
+
 			</div>
 		</div>
 	</body>

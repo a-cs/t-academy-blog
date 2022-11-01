@@ -24,6 +24,7 @@ public class DaoUsuario {
                 while (rs.next()){
                     Usuario u = new Usuario();
                     u.setId(rs.getInt("id"));
+                    u.setNome(rs.getString("nome"));
                     u.setEmail(rs.getString("email"));
                     u.setSenha(rs.getString("senha"));
                     u.setAdmin(rs.getBoolean("isAdmin"));
@@ -34,6 +35,29 @@ public class DaoUsuario {
             }
         }
         return lista;
+    }
+
+    public static Usuario listarPorId(int id) {
+        Connection con = Conexao.conectar();
+                Usuario u = null;
+        if(con != null) {
+            try {
+                PreparedStatement stm = con.prepareStatement("select * from usuarios where id=?");
+                stm.setInt(1, id);
+                ResultSet rs = stm.executeQuery();
+                if (rs.next()){
+                    u = new Usuario();
+                    u.setId(rs.getInt("id"));
+                    u.setNome(rs.getString("nome"));
+                    u.setEmail(rs.getString("email"));
+                    u.setSenha(rs.getString("senha"));
+                    u.setAdmin(rs.getBoolean("isAdmin"));
+                }
+            } catch (SQLException e) {
+                return u;
+            }
+        }
+        return u;
     }
 
 }
