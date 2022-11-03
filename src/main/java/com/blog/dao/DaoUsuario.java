@@ -85,4 +85,21 @@ public class DaoUsuario {
         return u;
     }
 
+    public static Boolean isUserAdmin(int id) {
+        Connection con = Conexao.conectar();
+        Boolean isAdmin = false;
+        if(con != null) {
+            try {
+                PreparedStatement stm = con.prepareStatement("select * from usuarios where id=?");
+                stm.setInt(1, id);
+                ResultSet rs = stm.executeQuery();
+                if (rs.next()){
+                    isAdmin = rs.getBoolean("isAdmin");
+                }
+            } catch (SQLException e) {
+                return isAdmin;
+            }
+        }
+        return isAdmin;
+    }
 }
