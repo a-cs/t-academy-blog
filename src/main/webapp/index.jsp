@@ -13,12 +13,42 @@
 	</head>
 
 	<body>
+		<div class="row text-center m-0 p-5">
+			<a class="text-decoration-none" href='index.jsp'>
+				
+				<h1>Blog - Indicações de Livros</h1>
+			</a>
+		</div>
+		
+		<nav class='navbar navbar-dark bg-primary justify-content-end mb-5'>
+			<ul class='navbar-nav flex-row'>
+				<a class='nav-link active px-3 mx-3' href='index.jsp'>
+					<li class='nav-item'>
+						Home
+					</li>
+				</a>
+				<a class='nav-link px-3 mx-3' id="login" href='login.jsp'>
+					<li class='nav-item'>
+						Login
+					</li>
+				</a>
+				<a class='nav-link px-3 mx-3' id="adminPanel" href='admin.jsp'>
+					<li class='nav-item'>
+						Painel Admin
+					</li>
+				</a>
+				<a class='nav-link px-3 mx-3' id="exit" href='sair.jsp'>
+					<li class='nav-item'>
+						Sair
+					</li>
+				</a>
+			</ul>
+			<script src="./menuConditionalRender.js"></script>
+		</nav>
+
 		<div class="container-fluid">
 
-			<div class="row text-center my-5">
 
-				<h1>Blog - Indicações de Livros</h1>
-			</div>
 			
 			<div class="row text-center">
 
