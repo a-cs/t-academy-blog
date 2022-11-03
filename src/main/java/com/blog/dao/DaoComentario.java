@@ -103,4 +103,24 @@ public class DaoComentario {
         }
         return false;
     }
+
+    public static Boolean comentar(Comentario c) {
+        Connection con = Conexao.conectar();
+        if (con != null) {
+            String sql = "insert into comentarios (autorId, postId, isApproved, conteudo) values (?, ?, ?, ?);";
+            try {
+                PreparedStatement stm = con.prepareStatement(sql);
+                stm.setInt(1, c.getAutorId());
+                stm.setInt(2, c.getPostId());
+                stm.setBoolean(3, c.isApproved());
+                stm.setString(4, c.getConteudo());
+                stm.execute();
+            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
 }

@@ -118,10 +118,13 @@
 				</div>
 
 				<div class='card mx-2 mb-3' id="newComment">
-					<form class='card-body d-flex flex-column py-3 h-100'>
+						<form class='card-body d-flex flex-column py-3 h-100' action='comentar.jsp' method='get'>
 						<h4 class='form-label mt-3 mb-4'>Comentário.</h4>
-						<textarea rows="3" maxlength="200" placeholder="Digite seu comentário"  name="comentario" class='form-control mt-auto text-muted'></textarea>
-						<a href='' class='btn btn-primary w-100 mt-3 mb-4'>Enviar comentário</a>
+						<textarea rows="3" maxlength="200" placeholder="Digite seu comentário"  name="comentario" class='form-control mt-auto text-muted' required></textarea>
+						<%
+							out.write("<input type='hidden' name='postId' value='"+ id +"'>");
+						%>
+						<button class='btn btn-primary w-100 mt-3'>Enviar comentário</button>
 					</form>
 				</div>
 

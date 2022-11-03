@@ -22,6 +22,7 @@ public class Comentario {
         this.conteudo = conteudo;
         this.autorId = autorId;
         this.postId = postId;
+        this.isApproved = false;
     }
 
     public int getId() {
