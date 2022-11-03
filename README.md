@@ -2,7 +2,7 @@
   Avaliação - JSP
 </h1>
 
-##### Antes de iniciar o projeto é necessario criar um banco com o nome DB1 e populado executando os comandos contidos na pasta sql.
+##### Antes de iniciar o projeto é necessario criar um banco com o nome DB1 e popula-lo executando os comandos contidos na pasta sql.
 
 
 ## Desenvolver um sistema de blog, as características para o desenvolvimento desse projeto são:
