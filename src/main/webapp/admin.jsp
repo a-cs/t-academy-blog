@@ -54,8 +54,8 @@
 				</div>
 
 				<div class="row justify-content-between my-5 mx-3">
-						<button type="button" class="btn btn-primary fs-2 col-3" onclick="window.location='todosposts.jsp'">Listar todos os Posts</button>
-						<button type="button" class="btn btn-primary fs-2 col-3" onclick="window.location='comentariosPendentes.jsp'">Criar post</button>
+						<button type="button" class="btn btn-primary fs-2 col-3" onclick="window.location='todosOsPosts.jsp'">Listar todos os Posts</button>
+						<button type="button" class="btn btn-primary fs-2 col-3" onclick="window.location='criarPost.jsp'">Criar post</button>
 						<button type="button" class="btn btn-primary fs-2 col-3" onclick="window.location='comentariosPendentes.jsp'">Aprovar Comentários</button>
 				</div>
 			</div>

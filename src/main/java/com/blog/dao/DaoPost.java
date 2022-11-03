@@ -84,4 +84,23 @@ public class DaoPost {
         return p;
     }
 
+    public static Boolean criar(Post p) {
+        Connection con = Conexao.conectar();
+        if (con != null) {
+            String sql = "insert into posts (autorId, titulo, conteudo) values (?, ?, ?);";
+            try {
+                PreparedStatement stm = con.prepareStatement(sql);
+                stm.setInt(1, p.getAutorId());
+                stm.setString(4, p.getTitulo());
+                stm.setString(4, p.getConteudo());
+                stm.execute();
+            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
 }

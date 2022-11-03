@@ -9,7 +9,7 @@
 			rel="stylesheet"
 			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 			crossorigin="anonymous">
-			<title>Blog - Indicações de Livros</title>
+			<title>Todos os Posts</title>
 	</head>
 
 	<body>
@@ -52,13 +52,13 @@
 			
 			<div class="row text-center">
 
-				<h2>Ultimas indicações</h2>
+				<h2>Todas as indicações</h2>
 			</div>
 
 			<div class="row my-4 mx-3 justify-content-center">
 
 				<%
-					List<Post> lista = DaoPost.listarUltimos10();
+					List<Post> lista = DaoPost.listar();
 					for(Post p : lista){
 						String conteudo = p.getConteudo(); 
 						String conteudoResumido = conteudo.length() > 16 ? conteudo.substring(0, 15) : conteudo;
